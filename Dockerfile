@@ -13,12 +13,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy backend requirements first for better caching
-COPY backend/requirements.txt .
+# Copy requirements first for better caching
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the backend application
-COPY backend/ .
+# Copy the application
+COPY . .
 
 # Create necessary directories with proper permissions
 RUN mkdir -p uploads snippets \
