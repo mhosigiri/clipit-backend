@@ -1,4 +1,4 @@
-primary_region = "sjc"
+# fly.toml app configuration file generated for clipit-backend
 
 [build]
   dockerfile = "Dockerfile"
@@ -14,9 +14,9 @@ primary_region = "sjc"
   auto_start_machines = true
   min_machines_running = 0
 
-[mounts]
-  source="clipit_data"
-  destination="/app/snippets"
+[[mounts]]
+  source = "clipit_data"
+  destination = "/app/snippets"
 
 [[vm]]
   memory = "2gb"
